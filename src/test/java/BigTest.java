@@ -36,6 +36,8 @@ public class BigTest {
         System.out.println("Hereeeeeeeeeeeeeeee=>"+ dashboardPage.getLoginSuccessTitle());
         Assert.assertTrue(dashboardPage.getLoginSuccessTitle().contains("Secure Area"));
         //Assert.assertTrue(dashboardPage.findElement(By.className("icon-lock")).getText().contains("Secure Area"));
+        //Implement Logout
+        dashboardPage.logOut();
                
     }
     

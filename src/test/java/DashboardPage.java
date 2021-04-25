@@ -53,7 +53,7 @@ import org.openqa.selenium.NoSuchElementException;
 class DashboardPage extends PageBase {
 
     private By loginSuccess = By.xpath("//*[@id='content']/div/h2");
-    
+    private By logoutButton = By.xpath("//*[@id='content']/div/a");
 
     public DashboardPage(WebDriver driver) {
         super(driver);
@@ -62,6 +62,12 @@ class DashboardPage extends PageBase {
     public String getLoginSuccessTitle(){
         return this.waitAndReturnElement(loginSuccess).getText();
     }
+
+    public void logOut()
+    {
+          this.waitAndReturnElement(logoutButton).click();
+    }
+
 }
 
 
