@@ -1,0 +1,48 @@
+
+
+plugins {
+   
+    id 'java'
+    
+}
+
+
+
+sourceSets {
+    test {
+        java {
+            srcDir 'test/java'
+        }
+    }
+}
+
+test{
+    testLogging {
+        outputs.upToDateWhen {false}
+        showStandardStreams = true
+    }
+}
+
+
+
+repositories {
+    // Use JCenter for resolving dependencies.
+    jcenter()
+}
+
+
+
+dependencies {
+    // Use JUnit test framework.
+    testImplementation 'junit:junit:4.13'
+
+    // This dependency is used by the application.
+   
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.52.0'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '2.23.0'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '4.3.1'
+
+   
+}
+
+
