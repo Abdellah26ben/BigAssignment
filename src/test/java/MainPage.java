@@ -18,6 +18,7 @@ class MainPage extends PageBase {
     private By LoginLink = By.linkText("Form Authentication");
     private By DropDownLink = By.linkText("Dropdown");
     private By staticPageLink = By.linkText("Inputs");
+    private By formSendLink = By.linkText("Forgot Password");
     
     
     
@@ -42,6 +43,11 @@ class MainPage extends PageBase {
     public staticPageTest staticPage() {
         this.waitAndReturnElement(staticPageLink).click();
         return new staticPageTest(this.driver);
+    }
+
+    public FormSendingPage sendForm() {
+        this.waitAndReturnElement(formSendLink).click();
+        return new FormSendingPage(this.driver);
     }
 
 

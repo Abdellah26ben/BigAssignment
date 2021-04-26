@@ -27,52 +27,51 @@ public class BigTest {
     }
     
   
-    /*
+    
     @Test
     public void testLoginSuccess() {
         MainPage mainPage = new MainPage(this.driver);
         LoginPage loginPage = mainPage.openLogin();
         DashboardPage dashboardPage = loginPage.login("tomsmith","SuperSecretPassword!");
-        //System.out.println(dashboardPage.getMainCardTitle());
-       // Assert.assertTrue(dashboardPage.getFooterText().contains("Secure Area"));
+        
         System.out.println("Hereeeeeeeeeeeeeeee=>"+ dashboardPage.getLoginSuccessTitle());
         Assert.assertTrue(dashboardPage.getLoginSuccessTitle().contains("Secure Area"));
-        //Assert.assertTrue(dashboardPage.findElement(By.className("icon-lock")).getText().contains("Secure Area"));
-        //Implement Logout
+        
         dashboardPage.logOut();
                
     }
+
+    @Test
+    public void sendFormTest() {
+        MainPage mainPage = new MainPage(this.driver);
+        FormSendingPage formPage = mainPage.sendForm();
+        
+        DashboardPage dashboardPage = formPage.sendFormInfo("adamben2619@gmail.com");
+        
+        Assert.assertTrue(dashboardPage.getSendFormMsg().contains("Internal Server Error"));
+     
+               
+    }
+    
+   
     @Test
     public void dropdownTest() {
         MainPage mainPage = new MainPage(this.driver);
         DropDownPage dropdownPage = mainPage.openDpDp();
         DashboardPage dashboardPage = dropdownPage.SelectOption();
-        //System.out.println(dashboardPage.getMainCardTitle());
-       // Assert.assertTrue(dashboardPage.getFooterText().contains("Secure Area"));
-        /*System.out.println("Hereeeeeeeeeeeeeeee=>"+ dashboardPage.getLoginSuccessTitle());
-        Assert.assertTrue(dashboardPage.getLoginSuccessTitle().contains("Secure Area"));
-        //Assert.assertTrue(dashboardPage.findElement(By.className("icon-lock")).getText().contains("Secure Area"));
-        //Implement Logout
-        dashboardPage.logOut();
+     
                
-    }*/
+    }
 
     @Test
     public void staticPageTest() {
         MainPage mainPage = new MainPage(this.driver);
         staticPageTest staticPage = mainPage.staticPage();
-        // formExistOrNot = staticPage.findSubmit();
         System.out.println(staticPage.findSubmit());
-       // Assert.assertTrue(dashboardPage.getFooterText().contains("Secure Area"));
-        /*System.out.println("Hereeeeeeeeeeeeeeee=>"+ dashboardPage.getLoginSuccessTitle());
-        Assert.assertTrue(dashboardPage.getLoginSuccessTitle().contains("Secure Area"));
-        //Assert.assertTrue(dashboardPage.findElement(By.className("icon-lock")).getText().contains("Secure Area"));
-        //Implement Logout
-        dashboardPage.logOut();*/
+    
                
     }
     
-
     
     @After
     public void close() {
