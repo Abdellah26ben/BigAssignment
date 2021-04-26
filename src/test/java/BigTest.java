@@ -7,7 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
+import org.openqa.selenium.support.ui.Select;
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import java.util.*;  
@@ -22,6 +23,7 @@ public class BigTest {
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
     
   
@@ -38,6 +40,20 @@ public class BigTest {
         //Assert.assertTrue(dashboardPage.findElement(By.className("icon-lock")).getText().contains("Secure Area"));
         //Implement Logout
         dashboardPage.logOut();
+               
+    }
+    @Test
+    public void dropdownTest() {
+        MainPage mainPage = new MainPage(this.driver);
+        DropDownPage dropdownPage = mainPage.openDpDp();
+        DashboardPage dashboardPage = dropdownPage.SelectOption();
+        //System.out.println(dashboardPage.getMainCardTitle());
+       // Assert.assertTrue(dashboardPage.getFooterText().contains("Secure Area"));
+        /*System.out.println("Hereeeeeeeeeeeeeeee=>"+ dashboardPage.getLoginSuccessTitle());
+        Assert.assertTrue(dashboardPage.getLoginSuccessTitle().contains("Secure Area"));
+        //Assert.assertTrue(dashboardPage.findElement(By.className("icon-lock")).getText().contains("Secure Area"));
+        //Implement Logout
+        dashboardPage.logOut();*/
                
     }
     

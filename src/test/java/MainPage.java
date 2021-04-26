@@ -16,6 +16,8 @@ class MainPage extends PageBase {
 
     private By loginMenuButtonBy = By.className("HeaderWidget-loginButton");
     private By LoginLink = By.linkText("Form Authentication");
+    private By DropDownLink = By.linkText("Dropdown");
+    
     
     
 
@@ -30,5 +32,12 @@ class MainPage extends PageBase {
         this.waitAndReturnElement(LoginLink).click();
         return new LoginPage(this.driver);
     }
+
+    public DropDownPage openDpDp() {
+        this.waitAndReturnElement(DropDownLink).click();
+        return new DropDownPage(this.driver);
+    }
+
+
 }
 
