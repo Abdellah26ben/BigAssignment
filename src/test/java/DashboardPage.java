@@ -15,9 +15,9 @@ import org.openqa.selenium.NoSuchElementException;
 
 class DashboardPage extends PageBase {
 
-    private By loginSuccess = By.xpath("//*[@id='content']/div/h2");
+    private By loginSuccess = By.xpath("//div[@class='large-12 columns']/div[@class='flash success']");
     private By SuccessSendForm = By.xpath("/html/body/h1");
-    private By logoutButton = By.xpath("//*[@id='content']/div/a");
+    private By logoutButton = By.xpath("//div[@id='content']/div/a[@class='button secondary radius']");
 
     public DashboardPage(WebDriver driver) {
         super(driver);

@@ -35,12 +35,12 @@ public class BigTest {
         DashboardPage dashboardPage = loginPage.login("tomsmith","SuperSecretPassword!");
         
         System.out.println("Hereeeeeeeeeeeeeeee=>"+ dashboardPage.getLoginSuccessTitle());
-        Assert.assertTrue(dashboardPage.getLoginSuccessTitle().contains("Secure Area"));
+        Assert.assertTrue(dashboardPage.getLoginSuccessTitle().contains("You logged into a secure area!"));
         
         dashboardPage.logOut();
                
     }
-
+   
     @Test
     public void sendFormTest() {
         MainPage mainPage = new MainPage(this.driver);
