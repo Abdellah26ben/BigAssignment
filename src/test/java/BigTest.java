@@ -71,6 +71,14 @@ public class BigTest {
     
                
     }
+     
+    @Test
+    public void getTitleTest() {
+        MainPage mainPage = new MainPage(this.driver);
+        Assert.assertTrue(mainPage.getTitle().contains("The Internet"));
+     
+               
+    }
     
     
     @After

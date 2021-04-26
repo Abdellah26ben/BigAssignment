@@ -50,6 +50,11 @@ class MainPage extends PageBase {
         return new FormSendingPage(this.driver);
     }
 
+    public String getTitle() {
+       String Actualtitle =  driver.getTitle();
+        return Actualtitle;
+    }
+
 
 }
 
