@@ -21,9 +21,11 @@ class DashboardPage extends PageBase {
 
     public DashboardPage(WebDriver driver) {
         super(driver);
+        WebDriverWait wait=new WebDriverWait(driver,15);
     }    
     
     public String getLoginSuccessTitle(){
+        
         return this.waitAndReturnElement(loginSuccess).getText();
     }
 

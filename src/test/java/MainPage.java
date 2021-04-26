@@ -26,32 +26,42 @@ class MainPage extends PageBase {
     public MainPage(WebDriver driver) {
         super(driver);
         this.driver.get("http://the-internet.herokuapp.com");
+        WebDriverWait wait=new WebDriverWait(driver,15);
+        
     }    
 
     
     
     public LoginPage openLogin() {
-        this.waitAndReturnElement(LoginLink).click();
+        //Explicit wait
+        wait.until(ExpectedConditions.elementToBeClickable(LoginLink)).click();
+        //this.waitAndReturnElement(LoginLink).click();
         return new LoginPage(this.driver);
     }
 
     public DropDownPage openDpDp() {
-        this.waitAndReturnElement(DropDownLink).click();
+        wait.until(ExpectedConditions.elementToBeClickable(DropDownLink)).click();
+        //this.fin(DropDownLink).click();
         return new DropDownPage(this.driver);
     }
 
     public staticPageTest staticPage() {
-        this.waitAndReturnElement(staticPageLink).click();
+        wait.until(ExpectedConditions.elementToBeClickable(staticPageLink)).click();
+        //this.waitAndReturnElement(staticPageLink).click();
         return new staticPageTest(this.driver);
     }
 
     public FormSendingPage sendForm() {
-        this.waitAndReturnElement(formSendLink).click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(LoginLink)).click();
+        //this.waitAndReturnElement(formSendLink).click();
         return new FormSendingPage(this.driver);
     }
 
     public String getTitle() {
        String Actualtitle =  driver.getTitle();
+       //Explicit wait 
+       wait.until(ExpectedConditions.titleIs(Actualtitle));
         return Actualtitle;
     }
 
