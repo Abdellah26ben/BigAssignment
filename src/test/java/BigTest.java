@@ -27,7 +27,7 @@ public class BigTest {
     }
     
   
-    
+    /*
     @Test
     public void testLoginSuccess() {
         MainPage mainPage = new MainPage(this.driver);
@@ -48,6 +48,21 @@ public class BigTest {
         DropDownPage dropdownPage = mainPage.openDpDp();
         DashboardPage dashboardPage = dropdownPage.SelectOption();
         //System.out.println(dashboardPage.getMainCardTitle());
+       // Assert.assertTrue(dashboardPage.getFooterText().contains("Secure Area"));
+        /*System.out.println("Hereeeeeeeeeeeeeeee=>"+ dashboardPage.getLoginSuccessTitle());
+        Assert.assertTrue(dashboardPage.getLoginSuccessTitle().contains("Secure Area"));
+        //Assert.assertTrue(dashboardPage.findElement(By.className("icon-lock")).getText().contains("Secure Area"));
+        //Implement Logout
+        dashboardPage.logOut();
+               
+    }*/
+
+    @Test
+    public void staticPageTest() {
+        MainPage mainPage = new MainPage(this.driver);
+        staticPageTest staticPage = mainPage.staticPage();
+        // formExistOrNot = staticPage.findSubmit();
+        System.out.println(staticPage.findSubmit());
        // Assert.assertTrue(dashboardPage.getFooterText().contains("Secure Area"));
         /*System.out.println("Hereeeeeeeeeeeeeeee=>"+ dashboardPage.getLoginSuccessTitle());
         Assert.assertTrue(dashboardPage.getLoginSuccessTitle().contains("Secure Area"));
