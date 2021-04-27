@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.NoSuchElementException;
 import java.util.*;  
 
@@ -19,11 +20,21 @@ public class BigTest {
     
     @Before
     public void setup() {
-        WebDriverManager.chromedriver().setup();
+              
 
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        WebDriverManager.chromedriver().setup();
+        //Apply Here options and DesiredCapablities for Chrome Browser
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        ChromeOptions chrome_options = new ChromeOptions();
+        chrome_options.addArguments("disable-extensions");
+        chrome_options.addArguments("start-maximized");
+        chrome_options.addArguments("disable-infobars");
+        capabilities.setCapability(ChromeOptions.CAPABILITY, chrome_options);
+        
+        capabilities.setCapability("browser", "Chrome");
+        
+        driver = new ChromeDriver(capabilities);
+       
     }
     
   
@@ -40,6 +51,7 @@ public class BigTest {
         dashboardPage.logOut();
                
     }
+    
    
     @Test
     public void sendFormTest() {
@@ -79,7 +91,7 @@ public class BigTest {
                
     }
    
-    
+   
     @After
     public void close() {
         if (driver != null) {
