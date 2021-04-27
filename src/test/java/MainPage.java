@@ -24,8 +24,8 @@ class MainPage extends PageBase {
     private By DropDownLink = By.linkText("Dropdown");
     private By staticPageLink = By.linkText("Inputs");
     private By formSendLink = By.linkText("Forgot Password");
-    
-    
+    private By DragDropLink = By.linkText("Drag and Drop");
+    private By FileUploadLink = By.linkText("File Upload");
     
 
     public MainPage(WebDriver driver) {
@@ -91,6 +91,13 @@ class MainPage extends PageBase {
        //Explicit wait 
        wait.until(ExpectedConditions.titleIs(Actualtitle));
         return Actualtitle;
+    }
+
+    
+    public FileUploadPage openfileUp() {
+        wait.until(ExpectedConditions.elementToBeClickable(FileUploadLink)).click();
+        //this.fin(DropDownLink).click();
+        return new FileUploadPage(this.driver);
     }
 
 

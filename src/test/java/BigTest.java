@@ -90,8 +90,28 @@ public class BigTest {
      
                
     }
+
+    
+    @Test
+    public void dragDropTest() {
+        MainPage mainPage = new MainPage(this.driver);
+        DragDropPage dragdropPage = mainPage.openDragDp();
+        DashboardPage dashboardPage = dragdropPage.fromBtoA();
+            
+    }
    
-   
+    @Test
+    public void fileUploadTest() {
+        MainPage mainPage = new MainPage(this.driver);
+        FileUploadPage fileUploadPage = mainPage.openfileUp();
+        DashboardPage dashboardPage = fileUploadPage.UploadFile("C:\\Users\\Abdellah\\Pictures\\Flags\\3.gif");
+        
+        System.out.println("Hereeeeeeeeeeeeeeee=>"+ dashboardPage.getFileUploadMsg());
+        Assert.assertTrue(dashboardPage.getFileUploadMsg().contains("File Uploaded!"));
+        
+        
+               
+    }
     @After
     public void close() {
         if (driver != null) {
