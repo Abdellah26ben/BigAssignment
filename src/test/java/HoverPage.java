@@ -11,24 +11,33 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+
 import org.openqa.selenium.interactions.Actions;
 
 
-class FileUploadPage extends PageBase {
+class HoverPage extends PageBase {
 
     
 
-    WebElement uploadElement = driver.findElement(By.id("file-upload"));
-    WebElement uploadsubmit = driver.findElement(By.id("file-submit"));
-    public FileUploadPage(WebDriver driver) {
+    WebElement img = driver.findElement(By.xpath("//*[@id='content']/div/div[1]/img"));
+    WebElement subMenu = driver.findElement(By.xpath("//*[@id='content']/div/div[1]/div/a"));
+    public HoverPage(WebDriver driver) {
         super(driver);
         
     }    
     
-    public DashboardPage UploadFile(String path){
-        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-        uploadElement.sendKeys(path);
-        wait.until(ExpectedConditions.elementToBeClickable(uploadsubmit)).click();
+    public DashboardPage hover(){
+        //Instantiating Actions class
+        Actions actions = new Actions(driver);
+
+        //Hovering on main menu
+        actions.moveToElement(img);
+       
+       //To mouseover on sub menu
+        actions.moveToElement(subMenu);
+
+        //build()- used to compile all the actions into a single step 
+        actions.click().build().perform();
 
         
         

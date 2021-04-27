@@ -112,6 +112,13 @@ public class BigTest {
         
                
     }
+    
+    @Test
+    public void hoverTest() {
+        MainPage mainPage = new MainPage(this.driver);
+        HoverPage hoveTestPage = mainPage.openHoverpage();
+        DashboardPage dashboardPage = hoveTestPage.hover();           
+    }
     @After
     public void close() {
         if (driver != null) {

@@ -26,6 +26,8 @@ class MainPage extends PageBase {
     private By formSendLink = By.linkText("Forgot Password");
     private By DragDropLink = By.linkText("Drag and Drop");
     private By FileUploadLink = By.linkText("File Upload");
+    private By hoverPageLink = By.linkText("Hovers");
+    
     
 
     public MainPage(WebDriver driver) {
@@ -99,6 +101,15 @@ class MainPage extends PageBase {
         //this.fin(DropDownLink).click();
         return new FileUploadPage(this.driver);
     }
+
+    public HoverPage openHoverpage() {
+        wait.until(ExpectedConditions.elementToBeClickable(hoverPageLink)).click();
+        //this.fin(DropDownLink).click();
+        return new HoverPage(this.driver);
+    }
+
+
+    
 
 
 }
