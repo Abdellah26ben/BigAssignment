@@ -83,7 +83,7 @@ class MainPage extends PageBase {
 
     public FormSendingPage sendForm() {
 
-        wait.until(ExpectedConditions.elementToBeClickable(LoginLink)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(formSendLink)).click();
         //this.waitAndReturnElement(formSendLink).click();
         return new FormSendingPage(this.driver);
     }
@@ -101,6 +101,14 @@ class MainPage extends PageBase {
         //this.fin(DropDownLink).click();
         return new FileUploadPage(this.driver);
     }
+
+    
+public DragDropPage openDragDp() {
+    wait.until(ExpectedConditions.elementToBeClickable(DragDropLink)).click();
+    //this.fin(DropDownLink).click();
+    return new DragDropPage(this.driver);
+}
+
 
     public HoverPage openHoverpage() {
         wait.until(ExpectedConditions.elementToBeClickable(hoverPageLink)).click();

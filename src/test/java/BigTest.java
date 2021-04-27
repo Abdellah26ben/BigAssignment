@@ -21,7 +21,7 @@ public class BigTest {
     @Before
     public void setup() {
               
-
+    
         WebDriverManager.chromedriver().setup();
         //Apply Here options and DesiredCapablities for Chrome Browser
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -38,7 +38,7 @@ public class BigTest {
     }
     
   
-  
+    
     @Test
     public void testLoginSuccess() {
         MainPage mainPage = new MainPage(this.driver);
@@ -63,7 +63,6 @@ public class BigTest {
         Assert.assertTrue(dashboardPage.getSendFormMsg().contains("Internal Server Error"));
      
     }
-    
    
     @Test
     public void dropdownTest() {
@@ -119,6 +118,8 @@ public class BigTest {
         HoverPage hoveTestPage = mainPage.openHoverpage();
         DashboardPage dashboardPage = hoveTestPage.hover();           
     }
+
+    
     @After
     public void close() {
         if (driver != null) {
