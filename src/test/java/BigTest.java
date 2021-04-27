@@ -45,7 +45,7 @@ public class BigTest {
     
   
     
-    @Test
+    @Test (priority=1)
     public void testLoginSuccess() {
         MainPage mainPage = new MainPage(this.driver);
         LoginPage loginPage = mainPage.openLogin();
@@ -59,7 +59,7 @@ public class BigTest {
     }
     
     
-    @Test(dependsOnMethods={"testLoginSuccess"}) 
+    @Test (dependsOnMethods={"testLoginSuccess"}) 
     public void sendFormTest() {
         MainPage mainPage = new MainPage(this.driver);
         FormSendingPage formPage = mainPage.sendForm();
@@ -70,7 +70,7 @@ public class BigTest {
      
     }
    
-    @Test
+    @Test (priority=3)
     public void dropdownTest() {
         MainPage mainPage = new MainPage(this.driver);
         DropDownPage dropdownPage = mainPage.openDpDp();
@@ -79,7 +79,7 @@ public class BigTest {
                
     }
 
-    @Test
+    @Test (priority=4)
     public void staticPageTest() {
         MainPage mainPage = new MainPage(this.driver);
         staticPage static_page = mainPage.staticPage();
@@ -88,7 +88,7 @@ public class BigTest {
                
     }
      
-    @Test
+    @Test (priority=2)
     public void getTitleTest() {
         MainPage mainPage = new MainPage(this.driver);
         Assert.assertTrue(mainPage.getTitle().contains("The Internet"));
@@ -97,7 +97,7 @@ public class BigTest {
     }
 
     
-    @Test
+    @Test (priority=5)
     public void dragDropTest() {
         MainPage mainPage = new MainPage(this.driver);
         DragDropPage dragdropPage = mainPage.openDragDp();
@@ -105,7 +105,7 @@ public class BigTest {
             
     }
    
-    @Test
+    @Test (priority=6)
     public void fileUploadTest() {
         MainPage mainPage = new MainPage(this.driver);
         FileUploadPage fileUploadPage = mainPage.openfileUp();
@@ -118,7 +118,7 @@ public class BigTest {
                
     }
     
-    @Test
+    @Test (priority=7)
     public void hoverTest() {
         MainPage mainPage = new MainPage(this.driver);
         HoverPage hoveTestPage = mainPage.openHoverpage();
