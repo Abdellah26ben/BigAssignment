@@ -25,13 +25,8 @@ class staticPageTest extends PageBase {
         
     }    
     
-    public DashboardPage findSubmit(){
-        if (driver.findElements(By.tagName("form")).isEmpty()) {
-            System.out.println("Element form doesn't exist");
-        } else {
-            System.out.println("Element form exist");
-        }
-        // drpOptions.selectByValue("1");
+    public DashboardPage StaticPage(){
+      
         
         return new DashboardPage(this.driver);
     }

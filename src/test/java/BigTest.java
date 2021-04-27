@@ -27,7 +27,7 @@ public class BigTest {
     }
     
   
-    
+  
     @Test
     public void testLoginSuccess() {
         MainPage mainPage = new MainPage(this.driver);
@@ -66,7 +66,7 @@ public class BigTest {
     public void staticPageTest() {
         MainPage mainPage = new MainPage(this.driver);
         staticPageTest staticPage = mainPage.staticPage();
-        System.out.println(staticPage.findSubmit());
+        System.out.println(staticPage.StaticPage());
     
                
     }
