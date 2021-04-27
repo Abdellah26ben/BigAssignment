@@ -52,7 +52,7 @@ class MainPage extends PageBase {
         return new DropDownPage(this.driver);
     }
 
-    public staticPageTest staticPage() {
+    public staticPage staticPage() {
 
         //Testing here different Static Pages 
         WebElement opentabs = driver.findElement(By.xpath("//div[@id='content']/ul"));
@@ -78,7 +78,7 @@ class MainPage extends PageBase {
              }
         
     
-        return new staticPageTest(this.driver);
+        return new staticPage(this.driver);
     }
 
     public FormSendingPage sendForm() {

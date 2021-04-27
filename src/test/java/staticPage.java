@@ -14,13 +14,13 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.Select;
 
 
-class staticPageTest extends PageBase {
+class staticPage extends PageBase {
 
     
 
    
     
-    public staticPageTest(WebDriver driver) {
+    public staticPage(WebDriver driver) {
         super(driver);
         
     }    

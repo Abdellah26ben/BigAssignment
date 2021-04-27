@@ -1,4 +1,4 @@
-import org.junit.*;
+//import org.junit.Assert;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -13,12 +13,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.NoSuchElementException;
 import java.util.*;  
+import org.testng.annotations.*;
+import org.testng.Assert;
+
+
+
+
 
 
 public class BigTest {
     public WebDriver driver;
     
-    @Before
+    @BeforeTest
     public void setup() {
               
     
@@ -52,8 +58,8 @@ public class BigTest {
                
     }
     
-   
-    @Test
+    
+    @Test(dependsOnMethods={"testLoginSuccess"}) 
     public void sendFormTest() {
         MainPage mainPage = new MainPage(this.driver);
         FormSendingPage formPage = mainPage.sendForm();
@@ -76,8 +82,8 @@ public class BigTest {
     @Test
     public void staticPageTest() {
         MainPage mainPage = new MainPage(this.driver);
-        staticPageTest staticPage = mainPage.staticPage();
-        System.out.println(staticPage.StaticPage());
+        staticPage static_page = mainPage.staticPage();
+        System.out.println(static_page.StaticPage());
     
                
     }
@@ -119,8 +125,8 @@ public class BigTest {
         DashboardPage dashboardPage = hoveTestPage.hover();           
     }
 
-    
-    @After
+   
+    @AfterTest
     public void close() {
         if (driver != null) {
             driver.quit();
