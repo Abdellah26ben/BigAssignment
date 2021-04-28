@@ -1,145 +1,47 @@
-# Video lecture
+# XPath
 
-https://www.youtube.com/watch?v=0YwyzqQRY4w
+Video: https://www.youtube.com/watch?v=ZFE12rcVb5Q
 
-# Gitlab Wiki page
+XPath is a general language to select elements from XML language.
+While the HTML is an XML then we can use the XPath to find elements.
 
-https://docs.gitlab.com/ee/user/markdown.html
+https://www.freeformatter.com/xpath-tester.html
 
-# Extend our code
-
-```
-    public int add(int aLeft, int aRight) {
-        return aLeft + aRight;
-    }
-```
-
-If we have a more complex code and plenty test cases, we want to know what parts of the original code tested weakly.
-
-# Code coverage
-
-The code coverage shows us which lines of the code run by our tests.
-With this information we can find code that isn't used any tests, so if there is a bug in it, it does not reveals.
+https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/By.html#xpath(java.lang.String)
 
 
-# Jacoco
+# Page Object pattern
 
-For JAVA we can use Jacoco to measure code coverage, we have to extend our gradle file only.
+Video: https://www.youtube.com/watch?v=VFVQRdsUWzI
 
-First we have to import, so we change plugins to the following:
-```
-plugins {
-    id 'application'
-    id 'java'
-    id 'jacoco'
-}
-```
+If we write more test the suites can get harder and harder to understand, so we introduce a level of organizing code.
+We say that every page have it's own class that contains the actions that can be done on that page or information that can be claimed.
 
-When we activates Jacoco plugin it automatically creates a `jacocoTestReport` task in our gradle project.
-We want to ask the gradle to run the code coverage report after every test, so we add
-```
-test {
-    finalizedBy jacocoTestReport
-}
-```
-that activates the `jacocoTestReport` right after the `test` task finished. 
-Therefore if we run `gradle test` it will create the code coverage as well.
+https://www.selenium.dev/documentation/en/guidelines_and_recommendations/page_object_models/
 
-If we want to make sure the test results are exists we can say for the gradle if we want to run directly the `jacocoTestReport` by the `gradle jacocoTestReport` command, then please run the `test` before by
-```
-jacocoTestReport {
-    dependsOn test
-}
-```
 
-So our new shiny *build.gradle* file:
-```
-plugins {
-    id 'application'
-    id 'java'
-    id 'jacoco'
-}
+# Big assignment
 
-repositories {
-    mavenCentral()
-}
+Video: https://www.youtube.com/watch?v=IBNwYH4Ko5s
 
-sourceSets {
-    test {
-        java {
-            srcDir 'test/java'
-        }
-    }
-}
+All of you have to do a big assignment that have to be presented in the future.
 
-test {
-    finalizedBy jacocoTestReport
-}
-jacocoTestReport {
-    dependsOn test
-}
+Our project assignment for the Week 5-8 will be a selenium test that tests a webpage that available publicly on the internet and choosen by you.
+Every student has to have to choose different website.
 
-dependencies {
-	testCompile('junit:junit:4.12'){
-		exclude group: 'org.hamcrest'
-	}
-	testCompile 'org.hamcrest:hamcrest-library:1.3'
-}
-```
 
-By default it will create the report in `build/reports/jacoco/test/html` folder.
+There are many task that you can do, but there are obligatory tasks as well.
+These tasks can be found in [this spreadsheet](https://docs.google.com/spreadsheets/d/1lwZlTShULZVSCxM-ew880VkdSffrruTUF229c-FsC5k/edit?usp=sharing).
+You will need to copy this spreadsheet and fill the yelllow zones.
 
-For more configuration: https://docs.gradle.org/current/userguide/jacoco_plugin.html
 
-## If jacoco skipeed
+The steps of the big assignment:
 
-Run `gradle clean` to clean the gradle build directory, that helps in many cases.
+- Find a webpage that has login and some basic functionality that wasn't choosen by anybody yet. You can find here the reserved pages in [this spreadsheet](https://docs.google.com/spreadsheets/d/1pVWcnxBJkw6f9679S2l4ZuaLa-QWQEEYAoFtjM3Bbw4/edit?usp=sharing).
+- Fill [this form](https://docs.google.com/forms/d/e/1FAIpQLSeDvCWjhM4KrUV_1eQc45taf--5Uz798jruwcFd8vjvXVAyHg/viewform?usp=sf_link) about your webpage choose. By filling the form, your reserve will be added to the spreadsheet mentioned in the previous bullet point.
+- Make your test program and publish on **Github** (Yes not on GitLab, now I ask you to use the public https://github.com/ to improve your visibility on the internet as programmer).
+- Copy the [point spreadsheet](https://docs.google.com/spreadsheets/d/1lwZlTShULZVSCxM-ew880VkdSffrruTUF229c-FsC5k/edit?usp=sharing) and fill the github url and with the tasks that you have done.
+- Present your solution.
+If you cannot explain fully that you wrote and does not convince me that you wrote it the work is failed and you have to choose a new page and redo the task.
 
-# Extend with function with branches
-
-```
-    public int max(int aLeft, int aRight) {
-        if(aLeft > aRight){
-            return aLeft;
-        }else{
-            return aRight;
-        }
-    }
-```
-
-We can check in the report what lines tested exactly.
-
-# How can get this on the server?
-
-We have to define to the GitLab we want to save some information from the specific stage by extending with artifacts part the job descriptor.
-
-```
-test_with_coverage:
-    stage: test
-    image: gradle
-    script:
-        - gradle test
-    artifacts:
-        paths:
-            - build/reports/jacoco/test/html
-        expire_in: 1 week
-```
-
-More info: https://docs.gitlab.com/ee/ci/pipelines/job_artifacts.html
-
-From this point we can download from the job view directly our code coverage report or publish to somewhere in a next stage.
-
-# Merge request closes issue
-
-https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically
-
-# Task
-
-- Create a milestone titled "I learn how to use GitLab ([your name])".
-- Create a wiki page. Set the title to your name. As content: 
-    - Add a clickable link to google.
-    - Add a code snippet into the page
-    - Add link to your milestone
-    - Add a link to one of your issue (created in the last session)
-- Use the source files from this repository and commit to the sandbox project and write test for them.
-- Achieve 100% testing coverage of the source code with the tests.
+You have **3 weeks** to do the assignment. I will share presentation slots after 19th of April.
